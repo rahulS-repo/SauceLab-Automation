@@ -15,6 +15,8 @@ public class LoginPage extends BasePage{
     private WebElement inputPassword;
     @FindBy(xpath = "//input[@value='Login']")
     private WebElement buttonLogin;
+    @FindBy(xpath = "//h3[@data-test='error']")
+    private WebElement textError;
 
     public void setUsername(String username){
         inputUsername.sendKeys(username);
@@ -24,5 +26,8 @@ public class LoginPage extends BasePage{
     }
     public void clickLogin(){
         buttonLogin.click();
+    }
+    public String getErrorText(){
+        return textError.getText();
     }
 }
